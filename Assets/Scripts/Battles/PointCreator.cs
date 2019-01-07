@@ -18,6 +18,9 @@ namespace Battles {
             var num = PlayerDataCarry.PlayerData.Count+bollNumCorrection;
             var center = centerCreator.Center.transform.position;
             foreach (var i in Enumerable.Range(0,num)) {
+                if (i >= angles.Length) {
+                    angles = angles.Select(n => n+22.5f).ToArray();
+                }
                 var rad = angles[i]* Mathf.Deg2Rad;
                 
                 var pos=new Vector3(center.x+createRange*Mathf.Sin(rad),

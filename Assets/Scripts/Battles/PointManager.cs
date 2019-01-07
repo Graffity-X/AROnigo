@@ -85,7 +85,7 @@ namespace Battles {
             if (havePointMans.All(n => n.PlayerID != p_id)) return;
             var result_points_numbers = havePointMans.Where(n => n.PlayerID == p_id).Select(n=>n.PointID).ToArray();
             ScrollLogger.Log("Player-"+p_id+" get "+result_points_numbers.Count()+" points!!");
-            goaledPlayer.Add(p_id);
+            goaledPlayer.Add(p_id*result_points_numbers.Length);
             //獲得されたポイントは操作対象から外す
             foreach (var item in result_points_numbers) {
                 var temp = GetPoint(item);
